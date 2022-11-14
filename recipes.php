@@ -6,7 +6,7 @@ $name = $_GET["recipeName"];
 $list = $_GET["recipeList"];
 
 
-if ($name == "SweetPotatoMuffins") {
+if ($name == "Sweet Potato Muffins") {
   
   if ($list == "ingredients") {
     include "ingredients.html";
@@ -17,7 +17,7 @@ if ($name == "SweetPotatoMuffins") {
   } elseif ($list == "directions") {
     include "directions.html"
       
-  } else }
+  } else {
     echo "1";
   }
 
@@ -25,13 +25,13 @@ if ($name == "SweetPotatoMuffins") {
 if ($name == "Lemon Panko Crusted Salmon") {
   
   if ($list == "ingredients") {
-    include "ingredients.html";
+    include "salmon-ingredients.html";
     
 } elseif ($list == "equipment") {
-    include "equipment.html";
+    include "salmon-equipment.html";
     
   } elseif ($list == "directions") {
-    include "directions.html"
+    include "salmon-directions.html"
       
   } else }
     echo "1";
@@ -40,13 +40,13 @@ if ($name == "Lemon Panko Crusted Salmon") {
 if ($name == "Fluffy French Toast") {
   
   if ($list == "ingredients") {
-    include "ingredients.html";
+    include "toast-ingredients.html";
     
 } elseif ($list == "equipment") {
-    include "equipment.html";
+    include "toast-equipment.html";
     
   } elseif ($list == "directions") {
-    include "directions.html"
+    include "toast-directions.html"
       
   } else }
     echo "1";
