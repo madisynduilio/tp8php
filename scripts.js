@@ -1,49 +1,48 @@
-// Javascript for TP7
-
-
-
+//function to load a file from the URL "fromFile" into the object "whereTo"
 function loadFileInto(recipeName, listName, whereTo) {
 
-	// creating a new XMLHttpRequest object
-	ajax = new XMLHttpRequest();
-  
+  // creating a new XMLHttpRequest object
+  ajax = new XMLHttpRequest();
+
+  //to define the fromFile variable with the passed recipe name and list
   fromFile = "recipes.php?recipeName=" + recipeName + "&recipeList=" + listName;
-
   console.log("From URL: " + fromFile);
-	// defines the GET/POST method, source, and async value of the AJAX object
-	ajax.open("GET", fromFile, true);
+  
+  // defines the GET/POST method, source, and async value of the AJAX object
+  ajax.open("GET", fromFile, true);
 
-	// provides code to do something in response to the AJAX request
-	ajax.onreadystatechange = function() {
-			if ((this.readyState == 4) && (this.status == 200)) {
-				document.querySelector(whereTo).innerHTML = this.responseText;
-				
-			} else if ((this.readyState == 4) && (this.status != 200)) {
-				console.log("Error: " + this.responseText);
-			}
-		
-	} // end ajax.onreadystatechange function
+  // provides code to do something in response to the AJAX request
+  ajax.onreadystatechange = function() {
+    if ((this.readyState == 4) && (this.status == 200)) {
+      document.querySelector(whereTo).innerHTML = this.responseText;
 
-	// initiate request and wait for response
-	ajax.send();
+    } else if ((this.readyState == 4) && (this.status != 200)) {
+      console.log("Error: " + this.responseText);
+    }
+
+  } // end ajax.onreadystatechange function
+
+  // initiate request and wait for response
+  ajax.send();
 
 }
 
-function Recipe(recipeName, contributorName, imageURL, ingredientsURL, equipmentURL, directionsURL) {
+// New receipe object- generic recipe creator
+function Recipe(recipeName, contributorName, imageURL) {
   
+  //example shows recipe not recipeName after this. which one is correct?
   this.recipeName = recipeName;
   this.contributor = contributorName;
   this.imageURL = imageURL;
-
   
   this.displayRecipe = function() {
-    
-    document.querySelector("#heroBanner h1").innerHTML = this.recipeName;
-    document.querySelector("#contributor").innerHTML = this.contributor;
-    document.querySelector("#heroBanner").style.backgroundImage = "url(" + this.imageURL +")";
-   loadFileInto(this.recipe, "ingredients", "#ingredients ul");
-    loadFileInto(this.recie, "equipment", "#equipment ul");
-    loadFileInto(this.recipe, "directions", "#directions ol");
+    document.querySelector("#heroBanner h1").innerHTML= this.recipeName;
+    document.querySelector("#contributor").innerHTML= this.contributor;
+    document.querySelector("#heroBanner").style.backgroundImage = "url("+ this.imageURL + ")";
+   
+      loadFileInto(this.recipeName, "ingredients", "#ingredients ul");
+    loadFileInto(this.recipeName, "equipment", "#equipment ul");
+    loadFileInto(this.recipeName, "directions", "#directions ol");
   }
   
   
